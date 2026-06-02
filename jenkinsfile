@@ -5,7 +5,6 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "Fetching code from Git..."
-                // Downloads the repository code into the Jenkins workspace
                 checkout scm 
             }
         }
@@ -15,7 +14,7 @@ pipeline {
                 echo "stage-1"
                 // Wrap the python command in an 'sh' block so Jenkins executes it in the terminal
                 // Use 'bat "python cloud.py"' if your Jenkins server runs on Windows
-                sh 'python3 cloud.py'
+                'bat' 'python cloud.py'
             }
         }
         
@@ -32,4 +31,4 @@ pipeline {
         }
     }
 }
-Use code with caution.How to set this up in Jenkins:Open your pipeline job configuration page.Scroll to the Pipeline section.Set Definition to Pipeline script from SCM.Select Git as your SCM and paste your repository URL.In the Script Path field, type Jenkinsfile.Save the settings and click Build Now.Note: The checkout scm step automatically tells Jenkins to read your repository configuration details from the job setup pages so you don't have to hardcode your Git credentials or URLs inside the script.To ensure this runs smoothly on your server, let me know:Is your Jenkins server running on Linux or Windows?Does your cloud.py script require any third-party libraries (like requests or boto3) to run?I can show you how to securely inject environment variables or install dependencies if needed.
+
