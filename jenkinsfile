@@ -4,6 +4,7 @@ stages {
 stage('Build') {
 steps {
 echo "stage-1"
+sh ''' python cloud.py '''
 }
 }
 stage('Test') {
